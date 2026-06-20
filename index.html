@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- CUSTOM FAVICON ADDED HERE (Dark background with lime JP) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0d'/%3E%3Ctext x='50' y='72' font-family='Arial, sans-serif' font-size='60' font-weight='bold' fill='%23c8ff3d' text-anchor='middle'%3EJP%3C/text%3E%3C/svg%3E" />
 <title>Jainish Parekh — Software Engineer & AI Developer</title>
 <meta name="description" content="Jainish Parekh — Software Engineer and M.Sc. student in AI for Industrial Applications. Full-stack development, machine learning, and enterprise-scale AI systems." />
 
@@ -609,7 +611,6 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* Mobile menu button base styling (handled show/hide by Tailwind classes in HTML) */
   .mobile-menu-btn {
     flex-direction: column; gap: 5px;
     background: none; border: none; cursor: pointer; padding: 8px;
@@ -640,20 +641,16 @@
 </head>
 <body>
 
-<!-- Custom cursor -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- Background layers -->
 <div class="bg-grid"></div>
 <div class="glow-blob glow-1"></div>
 <div class="glow-blob glow-2"></div>
 <div class="noise"></div>
 
-<!-- Scroll progress -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- Header -->
 <header class="site-header" id="header">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <a href="#home" class="flex items-center gap-2" data-magnetic>
@@ -661,7 +658,6 @@
       <span class="font-display font-bold text-lg tracking-tight">Jainish<span class="text-lime">.</span></span>
     </a>
     
-    <!-- Fixed Navigation: Hidden on mobile, flex on desktop (md:flex) -->
     <nav class="hidden md:flex items-center gap-7">
       <a href="#about" class="nav-link" data-num="01" data-magnetic>About</a>
       <a href="#skills" class="nav-link" data-num="02" data-magnetic>Skills</a>
@@ -671,14 +667,12 @@
       <a href="#contact" class="nav-link" data-num="06" data-magnetic>Contact</a>
     </nav>
     
-    <!-- Fixed Hamburger: Flex on mobile, hidden on desktop (md:hidden) -->
     <button class="mobile-menu-btn md:hidden flex" id="menuBtn" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" data-mobile-link>About</a>
   <a href="#skills" data-mobile-link>Skills</a>
@@ -688,7 +682,6 @@
   <a href="#contact" data-mobile-link>Contact</a>
 </div>
 
-<!-- Side navigation dots -->
 <nav class="side-nav" id="sideNav">
   <a href="#home" class="side-dot active" data-label="Home" data-section="home"></a>
   <a href="#about" class="side-dot" data-label="About" data-section="about"></a>
@@ -701,7 +694,6 @@
 </nav>
 
 <main>
-
   <!-- HERO -->
   <section id="home" class="hero">
     <div class="max-w-7xl mx-auto w-full">
@@ -756,7 +748,6 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
   <div class="marquee">
     <div class="marquee-track">
       <span class="marquee-item">Full-Stack Engineering</span>
@@ -767,7 +758,6 @@
       <span class="marquee-item">LLM & Prompt Engineering</span>
       <span class="marquee-item">REST API Design</span>
       <span class="marquee-item">Real-time Systems</span>
-      <!-- duplicate for seamless loop -->
       <span class="marquee-item">Full-Stack Engineering</span>
       <span class="marquee-item">AI for Industrial Applications</span>
       <span class="marquee-item">Deep Learning</span>
@@ -779,7 +769,6 @@
     </div>
   </div>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="max-w-7xl mx-auto">
       <div class="reveal">
@@ -839,7 +828,6 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
     <div class="max-w-7xl mx-auto">
       <div class="reveal">
@@ -906,7 +894,6 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="max-w-5xl mx-auto">
       <div class="reveal">
@@ -945,7 +932,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="max-w-7xl mx-auto">
       <div class="reveal">
@@ -1021,7 +1007,6 @@
     </div>
   </section>
 
-  <!-- EDUCATION -->
   <section id="education">
     <div class="max-w-7xl mx-auto">
       <div class="reveal">
@@ -1057,7 +1042,6 @@
     </div>
   </section>
 
-  <!-- RECOGNITION -->
   <section id="recognition">
     <div class="max-w-5xl mx-auto">
       <div class="reveal">
@@ -1100,7 +1084,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="contact">
     <div class="max-w-4xl mx-auto reveal">
       <div class="contact-eyebrow">// Let's build something</div>
@@ -1135,7 +1118,7 @@
 </footer>
 
 <script>
-  // ===== Custom cursor =====
+  // Custom cursor
   const cursorDot = document.getElementById('cursorDot');
   const cursorRing = document.getElementById('cursorRing');
   let mouseX = 0, mouseY = 0;
@@ -1169,7 +1152,7 @@
     });
   });
 
-  // ===== Magnetic effect =====
+  // Magnetic effect
   document.querySelectorAll('[data-magnetic]').forEach(el => {
     el.addEventListener('mousemove', (e) => {
       const rect = el.getBoundingClientRect();
@@ -1182,7 +1165,7 @@
     });
   });
 
-  // ===== Header scroll =====
+  // Header scroll
   const header = document.getElementById('header');
   const scrollProgress = document.getElementById('scrollProgress');
 
@@ -1195,7 +1178,7 @@
     scrollProgress.style.width = progress + '%';
   });
 
-  // ===== Mobile menu =====
+  // Mobile menu
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   menuBtn.addEventListener('click', () => {
@@ -1209,7 +1192,7 @@
     });
   });
 
-  // ===== Active section tracking =====
+  // Active section tracking
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
   const sideDots = document.querySelectorAll('.side-dot');
@@ -1244,7 +1227,7 @@
   window.addEventListener('scroll', updateActiveSection);
   updateActiveSection();
 
-  // ===== Reveal on scroll =====
+  // Reveal on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1256,7 +1239,7 @@
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ===== Typing effect =====
+  // Typing effect
   const typedEl = document.getElementById('typed');
   const phrases = [
     'Software Engineer // AI Developer',
@@ -1293,7 +1276,7 @@
   }
   type();
 
-  // ===== Counter animation =====
+  // Counter animation
   const counters = document.querySelectorAll('[data-count]');
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1317,7 +1300,7 @@
   }, { threshold: 0.5 });
   counters.forEach(c => counterObserver.observe(c));
 
-  // ===== Tilt effect =====
+  // Tilt effect
   document.querySelectorAll('[data-tilt]').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
