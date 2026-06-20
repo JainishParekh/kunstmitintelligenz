@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- CUSTOM FAVICON ADDED HERE (Dark background with lime JP) -->
+<!-- CUSTOM FAVICON (Dark background with lime JP) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0d'/%3E%3Ctext x='50' y='72' font-family='Arial, sans-serif' font-size='60' font-weight='bold' fill='%23c8ff3d' text-anchor='middle'%3EJP%3C/text%3E%3C/svg%3E" />
 <title>Jainish Parekh — Software Engineer & AI Developer</title>
 <meta name="description" content="Jainish Parekh — Software Engineer and M.Sc. student in AI for Industrial Applications. Full-stack development, machine learning, and enterprise-scale AI systems." />
@@ -199,9 +199,20 @@
     letter-spacing: -0.03em; margin-bottom: 3rem;
   }
 
+  /* HERO UPDATES */
   .hero {
     min-height: 100vh; display: flex; flex-direction: column;
     justify-content: center; padding-top: 6rem; position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; } /* Hide visual on mobile to keep text focus */
   }
 
   .hero-status {
@@ -298,6 +309,80 @@
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* CUSTOM HERO VISUAL (AI CORE) */
+  .hero-visual {
+    position: relative; display: flex; align-items: center; justify-content: center;
+    min-height: 500px; animation: fadeIn 1.5s ease-out 0.5s backwards;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  
+  .visual-grid-bg {
+    position: absolute; width: 400px; height: 400px;
+    background-image:
+      linear-gradient(rgba(200, 255, 61, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200, 255, 61, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle, black 0%, transparent 70%);
+    transform: rotate(15deg);
+  }
+
+  .ring {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(200, 255, 61, 0.2);
+    animation: rotate 20s linear infinite;
+  }
+  .ring-1 {
+    width: 350px; height: 350px;
+    border-top-color: var(--lime); border-right-color: var(--lime);
+    box-shadow: 0 0 30px rgba(200, 255, 61, 0.1);
+  }
+  .ring-2 {
+    width: 260px; height: 260px;
+    border-bottom-color: var(--ember); border-left-color: var(--ember);
+    animation-direction: reverse; animation-duration: 15s;
+  }
+  .ring-3 {
+    width: 170px; height: 170px;
+    border-top-color: var(--text); border-bottom-color: var(--text);
+    animation-duration: 10s;
+  }
+  @keyframes rotate { to { transform: rotate(360deg); } }
+
+  .core-orb {
+    width: 90px; height: 90px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, var(--lime) 40%, #8aaa00 80%);
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(200, 255, 61, 0.6), inset 0 0 20px rgba(0,0,0,0.3);
+    z-index: 2;
+    animation: pulseGlow 4s ease-in-out infinite;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(200, 255, 61, 0.6); }
+    50% { transform: scale(1.08); box-shadow: 0 0 80px rgba(200, 255, 61, 0.9); }
+  }
+
+  .neural-svg {
+    position: absolute; width: 100%; height: 100%; z-index: 1; opacity: 0.7;
+  }
+
+  .float-tag {
+    position: absolute; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; padding: 0.4rem 0.8rem;
+    background: rgba(19, 19, 26, 0.8); border: 1px solid var(--line);
+    border-radius: 4px; color: var(--text); backdrop-filter: blur(4px);
+    z-index: 3; animation: floatTag 6s ease-in-out infinite;
+  }
+  .tag-1 { top: 10%; left: 10%; color: var(--lime); border-color: rgba(200, 255, 61, 0.3); animation-delay: 0s; }
+  .tag-2 { bottom: 15%; right: 5%; color: var(--ember); border-color: rgba(255, 122, 61, 0.3); animation-delay: 2s; }
+  .tag-3 { top: 20%; right: 0%; color: var(--text); animation-delay: 4s; }
+  .tag-4 { bottom: 20%; left: 5%; color: var(--text); animation-delay: 1s; }
+
+  @keyframes floatTag {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 
   .marquee {
@@ -694,57 +779,97 @@
 </nav>
 
 <main>
-  <!-- HERO -->
+  <!-- HERO SECTION WITH NEW VISUAL -->
   <section id="home" class="hero">
-    <div class="max-w-7xl mx-auto w-full">
-      <div class="hero-status">
-        <span class="pulse-dot"></span>
-        <span>Available for Werkstudent / Internship roles</span>
+    <div class="max-w-7xl mx-auto w-full hero-grid">
+      
+      <!-- Hero Text Content -->
+      <div class="hero-content">
+        <div class="hero-status">
+          <span class="pulse-dot"></span>
+          <span>Available for Werkstudent / Internship roles</span>
+        </div>
+
+        <h1 class="hero-name">
+          <span class="line"><span class="word">Jainish</span></span>
+          <span class="line"><span class="word"><span class="accent">Parekh</span></span></span>
+        </h1>
+
+        <div class="hero-subtitle">
+          <span class="typed" id="typed"></span><span class="cursor-blink"></span>
+        </div>
+
+        <p class="hero-description">
+          Software Engineer and M.Sc. student in <strong>AI for Industrial Applications</strong> at OTH Amberg-Weiden.
+          Building full-stack SaaS platforms, real-time data systems, and applied machine learning solutions —
+          with hands-on experience in <strong>React, Node.js, Python, and deep learning</strong>.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary" data-magnetic>
+            Get in touch
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#projects" class="btn btn-secondary" data-magnetic>
+            View projects
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="stat-value" data-count="1">0</div>
+            <div class="stat-label">Years experience</div>
+          </div>
+          <div>
+            <div class="stat-value" data-count="2">0</div>
+            <div class="stat-label">SaaS products shipped</div>
+          </div>
+          <div>
+            <div class="stat-value" data-count="1">0</div>
+            <div class="stat-label">IEEE publication</div>
+          </div>
+          <div>
+            <div class="stat-value" data-count="15">0</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+        </div>
       </div>
 
-      <h1 class="hero-name">
-        <span class="line"><span class="word">Jainish</span></span>
-        <span class="line"><span class="word"><span class="accent">Parekh</span></span></span>
-      </h1>
+      <!-- Custom AI Core Visual -->
+      <div class="hero-visual">
+        <div class="visual-grid-bg"></div>
+        
+        <!-- Neural Network SVG Lines -->
+        <svg class="neural-svg" viewBox="0 0 400 400" fill="none">
+          <g stroke="rgba(200, 255, 61, 0.2)" stroke-width="1">
+            <path d="M50 100 L150 150 M50 200 L150 150 M50 300 L150 250 M150 150 L250 200 M150 250 L250 200 M250 200 L350 150 M250 200 L350 250" />
+            <path d="M50 100 L150 250 M50 300 L150 150" stroke="rgba(255, 122, 61, 0.15)" />
+          </g>
+          <g fill="rgba(200, 255, 61, 0.6)">
+            <circle cx="50" cy="100" r="4" />
+            <circle cx="50" cy="200" r="4" />
+            <circle cx="50" cy="300" r="4" />
+            <circle cx="150" cy="150" r="5" />
+            <circle cx="150" cy="250" r="5" />
+            <circle cx="350" cy="150" r="4" />
+            <circle cx="350" cy="250" r="4" />
+          </g>
+          <g fill="rgba(255, 122, 61, 0.8)">
+            <circle cx="250" cy="200" r="6" />
+          </g>
+        </svg>
 
-      <div class="hero-subtitle">
-        <span class="typed" id="typed"></span><span class="cursor-blink"></span>
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="core-orb"></div>
+
+        <div class="float-tag tag-1">{"AI": "M.Sc."}</div>
+        <div class="float-tag tag-2">React.js</div>
+        <div class="float-tag tag-3">Node.js</div>
+        <div class="float-tag tag-4">Python</div>
       </div>
 
-      <p class="hero-description">
-        Software Engineer and M.Sc. student in <strong>AI for Industrial Applications</strong> at OTH Amberg-Weiden.
-        Building full-stack SaaS platforms, real-time data systems, and applied machine learning solutions —
-        with hands-on experience in <strong>React, Node.js, Python, and deep learning</strong>.
-      </p>
-
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary" data-magnetic>
-          Get in touch
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#projects" class="btn btn-secondary" data-magnetic>
-          View projects
-        </a>
-      </div>
-
-      <div class="hero-stats">
-        <div>
-          <div class="stat-value" data-count="1">0</div>
-          <div class="stat-label">Years experience</div>
-        </div>
-        <div>
-          <div class="stat-value" data-count="2">0</div>
-          <div class="stat-label">SaaS products shipped</div>
-        </div>
-        <div>
-          <div class="stat-value" data-count="1">0</div>
-          <div class="stat-label">IEEE publication</div>
-        </div>
-        <div>
-          <div class="stat-value" data-count="15">0</div>
-          <div class="stat-label">Technologies</div>
-        </div>
-      </div>
     </div>
   </section>
 
