@@ -210,9 +210,11 @@
     gap: 3rem;
     align-items: center;
   }
+  
+  /* MOBILE HERO FIX: Completely hide visual */
   @media (max-width: 1024px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-visual { display: none; } /* Hide visual on mobile to keep text focus */
+    .hero-visual { display: none; } 
   }
 
   .hero-status {
